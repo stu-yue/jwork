@@ -1,0 +1,77 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Sorter {
+    + load(int[] elements) : void
+    + sort() : void
+    + getPlan() : String
+}
+class BubbleSorter {
+    - a : int[]
+    + load(int[] a) : void
+    - swap(int i, int j) : void
+    - plan : String
+    + sort() : void
+    + getPlan() : void
+}
+Sorter <|-- BubbleSorter
+
+interface Linable {
+    + setPosition(Position position) : void
+    + getPosition() : Postion
+    + getValue() : int
+}
+
+enum Gourd {
+    ONE
+    TWO
+    THREE
+    FOUR
+    FIVE
+    SIX
+    SEVEN
+    {static} + getGourdByRank(int rank) : Gourd
+    + rand() : int
+    + toString() : String
+    + setPosition((Position position) : void
+    + getPosition() : Postion
+    + swapPosition(Gourd another) : void
+    + getValue() : int
+}
+Linable <|-- Gourd
+
+class Geezer {
+    {static} - theGeezer : Geezer
+    {static} + getTheGeezer() : Geezer
+    - sorter : Sorter
+    + setSorter(Sorter sorter) : void
+    + lineUp(Line line) : String
+    - parsePlan(String plan) : String[]
+    - execute(String step) : void
+}
+
+class Line {
+    - positons : Postion[]
+    + put(Linable linable, int i) : void
+    + get(int i) : Linable
+    + toString() : String
+    + toArray() : Linable[]
+}
+
+class Position {
+    - linable : Linable
+    + setLinable(Linable linable) : void
+}
+Line +-- Position
+
+class Scene {
+    {static} + main(String[args]) : void
+}
+
+together {
+    class Geezer
+    class Scene
+}
+Geezer --[hidden] Scene
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+
+actor Geeze as geeze
+entity Guard as guard
+collections Line as line
+
+guard --> line : put
+guard --> line : put
+guard --> line : put
+guard --> line : put
+guard --> line : put
+guard --> line : put
+guard --> line : put
+
+geeze --> geeze : getTheGeezer
+sorter --> sorter : new a bubbleSorter
+geeze --> sorter : set sorter
+geeze --> sorter : line up
+sorter --> sorter : load
+sorter --> sorter : sorter
+sorter --> geeze : return log
+
+BufferedWriter --> BufferedWriter : write log to txt
+
+
+
+
+
+@enduml

@@ -1,0 +1,83 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Sorter {
+    + load(int[] elements) : void
+    + sort() : void
+    + getPlan() : String
+}
+class SelectSort {
+    - a : int[]
+    + load(int[] a) : void
+    - swap(int i, int j) : void
+    - plan : String
+    + sort() : void
+    + getPlan() : void
+}
+class ShellSort {
+    - a : int[]
+    + load(int[] a) : void
+    - swap(int i, int j) : void
+    - plan : String
+    + sort() : void
+    + getPlan() : void
+}
+Sorter <|-- SelectSort
+Sorter <|-- ShellSort
+
+interface Linable {
+    + setPosition(Position position) : void
+    + getPosition() : Postion
+    + getValue() : int
+}
+
+enum Goblin {
+    GOBLIN001
+    GOBLIN002
+    ...
+    GOBLIN256
+    {static} + getGoblinByRank(int rank) : Gourd
+    + rand() : int
+    + toString() : String
+    + setPosition((Position position) : void
+    + getPosition() : Postion
+    + swapPosition(Gourd another) : void
+    + getValue() : int
+}
+Linable <|-- Goblin
+
+class SnakeQ {
+    {static} - theSnakeQ : SnakeQ
+    {static} + getTheSnakeQ() : SnakeQ
+    - sorter : Sorter
+    + setSorter(Sorter sorter) : void
+    + lineUp(Line line) : String
+    - parsePlan(String plan) : String[]
+    - execute(String step) : void
+}
+
+class Line {
+    - positons : Postion[]
+    + put(Linable linable, int i) : void
+    + get(int i) : Linable
+    + toString() : String
+    + toArray() : Linable[]
+}
+
+class Position {
+    - linable : Linable
+    + setLinable(Linable linable) : void
+}
+Line +-- Position
+
+class Scene {
+    {static} + main(String[args]) : void
+}
+
+together {
+    class SnakeQ
+    class Scene
+}
+SnakeQ --[hidden] Scene
+
+@enduml
