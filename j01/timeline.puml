@@ -1,0 +1,77 @@
+' https://www.bilibili.com/video/BV16G411H79u/?spm_id_from=pageDriver&vd_source=003fe85f23eb2d5f21b26fc35bab7029
+' 6:54 ~ 7:54
+' 6:54 三娃喷火
+' snake，scorpin受到伤害
+' 大娃扔石头
+' snake，scorpin跑
+' 大娃扔石头
+' snake，scorpin跑
+' 水娃吐水
+' snake，scorpin受到伤害
+' 水娃吐水
+' snake，scorpin受到伤害
+' 火娃喷火
+' snake，scorpin受到伤害
+' 七娃收服
+' snake，scorpin受到伤害（dead）
+' 7：54
+
+@startuml
+actor       大娃      as dawa     #Fuchsia
+actor       三娃      as sanwa    #Green
+actor       四娃      as siwa     #Blue
+actor       七娃      as qiwa     #DarkViolet
+actor       蛇精      as snake    #Black
+actor       蝎子精     as scorpion   #Purple
+entity      火焰      as fire     #Red
+entity      洪水      as water    #RoyalBlue
+entity      石头      as rock
+entity      宝葫芦     as calabash #Navy
+' 三娃喷火，snake，scorpin受到伤害
+sanwa -[#Peru]>fire : 召唤神通[喷火]
+fire -[#Gray]>fire : 火焰出现[喷射]
+sanwa -[#Red]>snake : 造成伤害
+sanwa -[#Red]>scorpion : 造成伤害
+fire -[#Gray]>fire : 火焰消失[熄灭]
+' 大娃扔石头，snake，scorpion跑
+dawa -[#Peru]>rock : 召唤神通[扔石头]
+rock -[#Gray]>rock : 石头出现[滚下]
+snake -[#SeaGreen]>snake : 惊慌逃窜
+note left : Ah...Ah...
+scorpion -[#SeaGreen]>scorpion : 惊慌逃窜
+note left : Ah...Ah...
+rock -[#Gray]>rock : 石头消失[碎裂]
+' 大娃扔石头，snake，scorpion跑
+dawa -[#Peru]>rock : 召唤神通[扔石头]
+rock -[#Gray]>rock : 石头出现[滚下]
+snake -[#SeaGreen]>snake : 惊慌逃窜
+note left : Ah...Ah...
+scorpion -[#SeaGreen]>scorpion : 惊慌逃窜
+note left : Ah...Ah...
+rock -[#Gray]>rock : 石头消失[碎裂]
+' 水娃吐水,snake，scorpion受到伤害
+siwa -[#Peru]>water : 召唤神通[喷水]
+water -[#Gray]>water : 洪水出现[喷射]
+siwa -[#Red]>snake : 造程伤害
+siwa -[#Red]>scorpion : 造程伤害
+water -[#Gray]>water : 洪水消失[流走]
+' 水娃吐水,snake，scorpion受到伤害
+siwa -[#Peru]>water : 召唤神通[喷水]
+water -[#Gray]>water : 洪水出现[喷射]
+siwa -[#Red]>snake : 造程伤害
+siwa -[#Red]>scorpion : 造程伤害
+water -[#Gray]>water : 洪水消失[流走]
+' 三娃喷火，snake，scorpin受到伤害
+sanwa -[#Peru]>fire : 召唤神通[喷火]
+fire -[#Gray]>fire : 火焰出现[喷射]
+sanwa -[#Red]>snake : 造成伤害
+sanwa -[#Red]>scorpion : 造成伤害
+fire -[#Gray]>fire : 火焰消失[熄灭]
+' 七娃收服,snake，scorpion受到伤害（dead）
+qiwa -[#Peru]>calabash : 召唤神通[用宝葫芦]
+calabash -[#Gray]>calabash : 葫芦出现[闪光]
+qiwa -[#Red]>snake : 造成伤害
+qiwa -[#Red]>scorpion : 造成伤害
+calabash -[#Gray]>calabash : 葫芦消失[闪光]
+
+@enduml

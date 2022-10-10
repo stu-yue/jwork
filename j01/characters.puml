@@ -1,0 +1,48 @@
+@startuml
+
+class Being
+
+class Creature {
+
+    - int health
+    - int attack
+    - int defense
+    - String[] memory
+    - int memoryOffset
+
+    + speakTo()
+    + listen()
+    + attack()
+    + receiveAttack()
+    + move()
+}
+
+class Prop{
+    - String description
+    + appear()
+    + eliminate()
+}
+
+class Monster{
+    - String name
+    + beScared()
+    + move()
+}
+
+class CalabashBrother{
+    - String name
+    + callProp()
+}
+
+Creature --|> Being
+
+
+CalabashBrother --|> Creature
+
+Monster --|> Creature
+
+Prop --|> Being
+
+Prop --o CalabashBrother
+
+@enduml
